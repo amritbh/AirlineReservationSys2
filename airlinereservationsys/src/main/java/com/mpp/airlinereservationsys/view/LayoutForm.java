@@ -71,6 +71,12 @@ public class LayoutForm extends JFrame {
 
         // Set menu bar to frame
         setJMenuBar(menuBar);
+        openMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            FlightReservation flightReservation = new FlightReservation();
+            }
+        });
 
         // Create desktop pane
         jDesktopPane = new JDesktopPane();
