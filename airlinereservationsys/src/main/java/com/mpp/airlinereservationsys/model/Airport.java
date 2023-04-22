@@ -1,6 +1,9 @@
 package com.mpp.airlinereservationsys.model;
 
-public class Airport {
+
+import com.mpp.airlinereservationsys.utility.Validator;
+
+public class Airport extends Validator {
 
         private String airportID;
         private String city;
@@ -8,13 +11,15 @@ public class Airport {
 
 
         public Airport() {
+
             this.airportID = String.valueOf(toString().isEmpty());
             this.city = String.valueOf(toString().isEmpty());
             this.country =String.valueOf(toString().isEmpty());
         }
 
-        public Airport(String airportID, String city, String country) {
+        public Airport(String airportID, String city, String country) throws Exception {
 
+            airportValidator(airportID,city,country);
             this.setAirportID(airportID);
             this.setCity(city);
             this.setCountry(country);
@@ -22,29 +27,16 @@ public class Airport {
 
 
         public void setAirportID(String airportID) {
-
-            if (airportID.matches("[a-zA-Z]+$") && airportID.length() == 3) {
                 this.airportID = airportID.toUpperCase();
-            } else {
-                System.out.println("Invalid Airport ID");
-            }
-
         }
 
         public void setCity(String city) {
-            if (city.matches("[a-zA-Z ]+$")) {
                 this.city = city;
-            } else {
-                System.out.println("Invalid City Name");
-            }
+
         }
 
         public void setCountry(String country) {
-            if (country.matches("[a-zA-Z ]+$")) {
-                this.country = country;
-            } else {
-                System.out.println("Invalid Airline Name");
-            }
+          this.country=country;
         }
 
         public String getAirportID() {
@@ -59,9 +51,13 @@ public class Airport {
             return country;
         }
 
-        @Override
-        public String toString() {
-            return this.getAirportID() + "," + this.getCity() + "," + this.getCountry();
-        }
+    @Override
+    public String toString() {
+        return "Airport{" +
+                "airportID='" + airportID + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
+}
 
