@@ -1,6 +1,8 @@
 package com.mpp.airlinereservationsys.model;
 
-public class Airline {
+import com.mpp.airlinereservationsys.utility.Validator;
+
+public class Airline extends Validator {
     private String airlineID;
     private String airlineName;
 
@@ -9,32 +11,19 @@ public class Airline {
         this.airlineName = "";
     }
 
-    public Airline(String airlineID, String name) {
+    public Airline(String airlineID, String name) throws Exception {
+        airlineValidator(airlineID,name);
         this.setAirlineID(airlineID);
         this.setAirlineName(name);
 
     }
 
     public void setAirlineID(String airlineID) {
-
-        if(airlineID.matches("[a-zA-Z]+$") && airlineID.length()==2){
-            this.airlineID = airlineID.toUpperCase();
-        }
-        else{
-            System.out.println("Invalid Airline ID");
-        }
-
+            this.airlineID = airlineID;
     }
 
     public void setAirlineName(String airlineName) {
-
-        if (airlineName.matches("[a-zA-Z ]+$")) {
             this.airlineName = airlineName;
-        }
-        else{
-            System.out.println("Invalid Airline Name");
-        }
-
     }
 
     public String getAirlineID() {
