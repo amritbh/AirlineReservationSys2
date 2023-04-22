@@ -6,12 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Login extends JFrame  {
+    public Login() {
+        initComponents();
+    }
     private JLabel usernameLabel, passwordLabel, roleTypeLabel;
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JComboBox<String> roleTypeComboBox;
     private JButton signInButton;
-    public Login()
+    private void initComponents()
     {
         usernameLabel = new JLabel("Username:");
         passwordLabel = new JLabel("Password:");
@@ -74,6 +77,6 @@ public class Login extends JFrame  {
         setVisible(true);
     }
     public static void main(String[] args) {
-         Login login= new Login();
+        new Login();
     }
 }
