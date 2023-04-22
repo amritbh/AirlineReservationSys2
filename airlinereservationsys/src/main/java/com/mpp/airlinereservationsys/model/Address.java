@@ -28,6 +28,11 @@ public class Address extends Validator {
         return city;
     }
 
+    public String getFullAddress()
+    {
+        return getStreet() + " " + getCity();
+    }
+
     @Override
     public String toString() {
         return "Address{" +
