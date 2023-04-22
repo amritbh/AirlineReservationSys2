@@ -38,6 +38,12 @@ public class LayoutForm extends JFrame{
 
         // Set menu bar to frame
         setJMenuBar(menuBar);
+        openMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            FlightReservation flightReservation = new FlightReservation();
+            }
+        });
 
         // Show the window
         setVisible(true);

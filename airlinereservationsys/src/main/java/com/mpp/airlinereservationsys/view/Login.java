@@ -67,8 +67,12 @@ public class Login extends JFrame  {
                 String username = usernameField.getText();
                 String password = passwordField.getText();
 
-                if (username.equals("admin") && password.equals("123"))
-                    JOptionPane.showMessageDialog(null, "Login Successful");
+                if (username.equals("admin") && password.equals("123")){
+                    dispose();
+                    new LayoutForm();
+                   // nextForm.setVisible(true);
+                }
+
                 else
                     JOptionPane.showMessageDialog(null, "Username or Password mismatch ");
 
