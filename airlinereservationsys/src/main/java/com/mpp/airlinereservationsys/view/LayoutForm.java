@@ -43,8 +43,11 @@ public class LayoutForm extends JFrame {
         passengerMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 PassengerReportForm passengerReportForm = new PassengerReportForm();
-                passengerReportForm.setVisible(true);
-                passengerReportForm.dispose();
+                try {
+                    passengerReportForm.getPassengerReport();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 

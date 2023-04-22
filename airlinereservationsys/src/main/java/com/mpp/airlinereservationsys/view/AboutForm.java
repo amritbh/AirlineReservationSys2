@@ -25,6 +25,7 @@ public class AboutForm extends JFrame {
         panel.add(infoLabel, BorderLayout.CENTER);
 
         getContentPane().add(panel);
+        setVisible(true);
     }
 
     public static void main(String[] args) {
