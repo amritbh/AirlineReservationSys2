@@ -28,6 +28,10 @@ public class Identity {
         return lastName;
     }
 
+    public  String getFullName()
+    {
+        return getFirstName() + " " + getLastName();
+    }
     @Override
     public String toString() {
         return "Identity{" +

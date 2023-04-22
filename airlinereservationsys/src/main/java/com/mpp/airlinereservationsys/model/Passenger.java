@@ -27,7 +27,7 @@ public class Passenger extends Validator {
     }
 
     public Identity getName() {
-        return name;
+        return this.name;
     }
 
     public Address getAddress() {
