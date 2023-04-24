@@ -1,11 +1,16 @@
 package com.mpp.airlinereservationsys.model;
 
 public enum RoleType {
-    ADMIN,
-    PASSENGER;
+    ADMIN("Admin"),
+    PASSENGER("Passenger");
 
-    RoleType()
-    {
+    private String val;
 
+    RoleType(String val) {
+        this.val = val;
+    }
+
+    public String getValue() {
+        return val;
     }
 }

@@ -6,23 +6,44 @@ import java.awt.*;
 public class AboutForm extends JFrame {
 
     public AboutForm() {
-        setTitle("About Airline Reservation System");
+        setTitle("About");
         setSize(400, 300);
         setLocationRelativeTo(null); // center the frame on screen
         setResizable(false);
 
-        JLabel headerLabel = new JLabel("Airline Reservation System", JLabel.CENTER);
-        headerLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        var textPanel = new JPanel(new BorderLayout());
+        textPanel.setBorder(BorderFactory.createEmptyBorder(15, 25, 15, 25));
 
-        JLabel infoLabel = new JLabel("<html><div style='text-align: center;'>This airline reservation system is developed by Avinash<br>Version 1.0<br><br>Contact:<br>Avinash<br>avinash@airlines.com<br>123-456-7890</div></html>");
-        infoLabel.setFont(new Font("Arial", Font.BOLD, 14));
-        infoLabel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
-        infoLabel.setBackground(Color.gray);
-        infoLabel.setOpaque(true);
+        var pane = new JTextPane();
+        pane.setContentType("text/html");
+
+        // set text with HTML and CSS
+        var text = "<html><head><style>" +
+                "body { background-color: #f2f2f2; }" +
+                "h1 { color: #444444; text-align: center; }" +
+                "p { color: #666666; font-size: 14px; }" +
+                "</style></head><body>" +
+                "<h1>MIU Airline Reservation System</h1>" +
+                "<p><b>This airline reservation system is developed by Avinash</b></p>" +
+                "<p>Version 1.0. Contact: avinash@airlines.com</p>" +
+                "</body></html>";
+        pane.setText(text);
+        pane.setEditable(false);
+        textPanel.add(pane);
 
         JPanel panel = new JPanel(new BorderLayout());
-        panel.add(headerLabel, BorderLayout.NORTH);
-        panel.add(infoLabel, BorderLayout.CENTER);
+        panel.add(textPanel, BorderLayout.CENTER);
+
+        // create back button
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(e -> {
+            disposeWindow(); // close the AboutForm
+            Home home = new Home();
+            home.show(); // show the Home page
+        });
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(backButton);
+        panel.add(buttonPanel, BorderLayout.SOUTH);
 
         getContentPane().add(panel);
         setVisible(true);
@@ -33,5 +54,14 @@ public class AboutForm extends JFrame {
         aboutPage.setVisible(true);
     }
 
+    public void  disposeWindow()
+    {
+        Window[] windows = Window.getWindows();
+        for (Window window : windows) {
+            if (window.isVisible()) {
+                window.dispose();
+            }
+        }
+    }
 
 }

@@ -4,11 +4,9 @@ public interface Authenticator {
 
     default void authorize(String username, String password,RoleType roleType)
     {
-        if(username.toLowerCase()!="admin" || password!="letmein")
+        if(username.toLowerCase()!="admin")
         {
             throw new RuntimeException("Invalid user.");
-        } else {
-            System.out.println("Successfully Login !!!!");
         }
 
     }

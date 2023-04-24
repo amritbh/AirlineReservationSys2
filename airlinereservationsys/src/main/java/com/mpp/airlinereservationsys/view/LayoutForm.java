@@ -5,9 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LayoutForm extends JFrame {
+    private JFrame frame;
     private JDesktopPane jDesktopPane;
     public LayoutForm() {
         // Set window properties
+
         setTitle("MIU Airlines");
         setSize(800, 600); // increased size for demonstration purposes
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -15,16 +17,29 @@ public class LayoutForm extends JFrame {
         // Create menu bar
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu fileMenu = new JMenu("Flight");
+        JMenu flightMenu = new JMenu("Flight");
 
-        JMenuItem openMenuItem = new JMenuItem("Reservation");
-        openMenuItem.addActionListener(new ActionListener() {
+        JMenuItem reservationMenuItem = new JMenuItem("Reservation");
+        JMenuItem flightSearchMenuItem = new JMenuItem("Flight Search");
+        reservationMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 FlightReservation reservationForm = new FlightReservation();
 
             }
         });
 
+        flightSearchMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    FlightSearchForm flightSearchForm=new FlightSearchForm();
+                    setVisible(true);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+        });
         JMenuItem exitMenuItem = new JMenuItem("Exit");
         exitMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -32,13 +47,15 @@ public class LayoutForm extends JFrame {
             }
         });
 
-        fileMenu.addSeparator();
-        fileMenu.add(openMenuItem);
-        fileMenu.addSeparator(); // Add separator between items
-        fileMenu.add(exitMenuItem);
+        flightMenu.addSeparator();
+        flightMenu.add(reservationMenuItem);
+        flightMenu.addSeparator();
+        flightMenu.add(flightSearchMenuItem);
+        flightMenu.addSeparator();
+        flightMenu.add(exitMenuItem);
 
         // Create "Edit" menu with one item
-        JMenu editMenu = new JMenu("Report");
+        JMenu reportMenu = new JMenu("Report");
         JMenuItem passengerMenuItem= new JMenuItem("Passenger List");
         passengerMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -52,8 +69,8 @@ public class LayoutForm extends JFrame {
         });
 
         JMenuItem copyMenuItem = new JMenuItem("Open");
-        editMenu.add(copyMenuItem);
-        editMenu.add(passengerMenuItem);
+        reportMenu.add(copyMenuItem);
+        reportMenu.add(passengerMenuItem);
 
         // create the "Help" menu
         JMenu helpMenu = new JMenu("Help");
@@ -61,21 +78,19 @@ public class LayoutForm extends JFrame {
         aboutMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AboutForm aboutPage = new AboutForm();
-                aboutPage.dispose();
+                aboutPage.disposeWindow();
                 aboutPage.setVisible(true);
             }
         });
         helpMenu.add(aboutMenuItem);
 
         // Add menus to menu bar
-        menuBar.add(fileMenu);
-        menuBar.add(editMenu);
+        menuBar.add(flightMenu);
+        menuBar.add(reportMenu);
         menuBar.add(helpMenu);
 
-        // Set menu bar to frame
         setJMenuBar(menuBar);
 
-        // Create desktop pane
         jDesktopPane = new JDesktopPane();
         setContentPane(jDesktopPane);
 

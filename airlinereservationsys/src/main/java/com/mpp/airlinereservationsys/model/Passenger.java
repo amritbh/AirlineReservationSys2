@@ -14,6 +14,10 @@ public class Passenger extends Validator {
         this.telephoneNumber = telephoneNumber;
     }
 
+    public Passenger(String text) {
+        super();
+    }
+
     public void setName(Identity name) {
         this.name = name;
     }

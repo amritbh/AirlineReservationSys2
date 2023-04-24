@@ -17,30 +17,30 @@ public class PassengerReportForm extends JFrame {
     public PassengerReportForm() {
         super("Passenger Report");
 
-        // Create a table model with no rows and three columns
         model = new DefaultTableModel(new Object[][]{}, new String[]{"Full Name", "Address", "Telephone Number"});
 
-        // Create a table using the model
         table = new JTable(model);
-
-        // Add the table to a scroll pane
+        table.setBackground( new Color(65, 105, 225));
         JScrollPane scrollPane = new JScrollPane(table);
 
-        // Set the preferred size of the scroll pane
         scrollPane.setPreferredSize(new Dimension(400, 200));
 
-        // Add the scroll pane to a panel
         JPanel panel = new JPanel();
         panel.add(scrollPane);
 
-        // Add the panel to the frame
+        // Add back button
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(e -> {
+            disposeWindow(); // Close current window
+           Home home = new Home();
+           home.show();
+        });
+        panel.add(backButton);
+
         getContentPane().add(panel);
 
-        // Set the size of the frame
         setSize(500, 300);
-
         setVisible(true);
-        // Exit the application when the frame is closed
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -58,13 +58,13 @@ public class PassengerReportForm extends JFrame {
             frame.addRow(data.getName().getFullName(),data.getAddress().getFullAddress(),data.getTelephoneNumber());
         }
     }
-//    public static void main(String[] args) throws Exception {
-//        // Create and show the frame
-//        PassengerReportForm frame = new PassengerReportForm();
-//        frame.setVisible(true);
-//        for(Passenger data : MockData.getPassengerList())
-//        {
-//            frame.addRow(data.getName().getFullName(),data.getAddress().getFullAddress(),data.getTelephoneNumber());
-//        }
-//    }
+    public void  disposeWindow() {
+        Window[] windows = Window.getWindows();
+        for (Window window : windows) {
+            if (window.isVisible()) {
+                window.dispose();
+            }
+        }
+    }
+
 }
