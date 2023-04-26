@@ -35,9 +35,6 @@ public class Address extends Validator {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                '}';
+        return getFullAddress();
     }
 }

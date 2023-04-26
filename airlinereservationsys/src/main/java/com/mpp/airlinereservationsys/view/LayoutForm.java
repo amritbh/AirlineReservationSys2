@@ -43,7 +43,11 @@ public class LayoutForm extends JFrame {
         JMenuItem exitMenuItem = new JMenuItem("Exit");
         exitMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                int dialogFlag = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                if (dialogFlag == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                   new Login();
+                }
             }
         });
 
@@ -59,9 +63,9 @@ public class LayoutForm extends JFrame {
         JMenuItem passengerMenuItem= new JMenuItem("Passenger List");
         passengerMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PassengerReportForm passengerReportForm = new PassengerReportForm();
+                //PassengerReportForm passengerReportForm = new PassengerReportForm();
                 try {
-                    passengerReportForm.getPassengerReport();
+                    new PassengerReportForm();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -72,7 +76,7 @@ public class LayoutForm extends JFrame {
         reportMenu.add(copyMenuItem);
         reportMenu.add(passengerMenuItem);
 
-        // create the "Help" menu
+
         JMenu helpMenu = new JMenu("Help");
         JMenuItem aboutMenuItem = new JMenuItem("About");
         aboutMenuItem.addActionListener(new ActionListener() {
@@ -84,7 +88,6 @@ public class LayoutForm extends JFrame {
         });
         helpMenu.add(aboutMenuItem);
 
-        // Add menus to menu bar
         menuBar.add(flightMenu);
         menuBar.add(reportMenu);
         menuBar.add(helpMenu);

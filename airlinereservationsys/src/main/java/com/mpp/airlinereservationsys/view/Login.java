@@ -167,9 +167,11 @@ public class Login extends JFrame implements Authenticator {
                 String role = (String) roleTypeComboBox.getSelectedItem();
                 try {
                     Validator.loginValidator(username,password, RoleType.ADMIN);
-                    //authorize(username,password,RoleType.ADMIN);
+                    authorize(username,password,RoleType.ADMIN);
                     Home home= new Home();
                     home.show();
+
+
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }

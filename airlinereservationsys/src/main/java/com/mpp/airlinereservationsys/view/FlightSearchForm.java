@@ -24,7 +24,7 @@ public class FlightSearchForm extends JFrame implements ActionListener {
 
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
-        table.setBackground( new Color(65, 105, 225));
+        jFrame.setBackground( new Color(240, 248, 255));
 
         tableModel.addColumn("Flight Number");
         tableModel.addColumn("Departure Date");

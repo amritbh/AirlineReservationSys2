@@ -71,10 +71,9 @@ public class Home {
         panel.add(passengerReport);
         panel.add(help);
         panel.add(exit);
-        // add panel to frame
+
         frame.add(panel);
 
-        // call method flightSearch when Search Flight button is clicked
         searchFlight.addActionListener(e -> {
             try {
                 flightSearch();
@@ -110,9 +109,6 @@ public class Home {
     }
 
 
-
-
-    // show the frame
     public void show() {
         frame.setVisible(true);
     }
@@ -131,7 +127,7 @@ public class Home {
     public  void passengerSearch() throws Exception {
         frame.setVisible(false);
         PassengerReportForm passengerReportForm=new PassengerReportForm();
-        //passengerReportForm.show();
+        passengerReportForm.show();
     }
     public  void helpSearch()  {
         frame.setVisible(false);
