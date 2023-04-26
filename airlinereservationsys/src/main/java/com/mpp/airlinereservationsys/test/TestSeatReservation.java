@@ -5,8 +5,6 @@ import com.mpp.airlinereservationsys.model.*;
 public class TestSeatReservation {
     public static void main(String[] args) throws Exception {
 
-
-
         Seat seat1 = new Seat("A1", true);
         Seat seat2 = new Seat("A2", true);
 

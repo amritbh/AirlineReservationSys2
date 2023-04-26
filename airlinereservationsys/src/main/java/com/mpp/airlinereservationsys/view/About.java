@@ -24,8 +24,8 @@ public class About extends JFrame {
                 "p { color: #666666; font-size: 14px; }" +
                 "</style></head><body>" +
                 "<h1>MIU Airline Reservation System</h1>" +
-                "<p><b>This airline reservation system is developed by Avinash</b></p>" +
-                "<p>Version 1.0. Contact: avinash@airlines.com</p>" +
+                "<p><b>This airline reservation system is developed by MIU</b></p>" +
+                "<p>Version 1.0. Contact: Miu@airlines.com</p>" +
                 "</body></html>";
         pane.setText(text);
         pane.setEditable(false);
