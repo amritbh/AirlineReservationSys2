@@ -3,7 +3,6 @@ package com.mpp.airlinereservationsys.view;
 
 import com.mpp.airlinereservationsys.model.Passenger;
 import com.mpp.airlinereservationsys.model.Seat;
-import com.mpp.airlinereservationsys.model.SeatReservation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-public class SeatReservationForm extends JFrame implements ActionListener {
+public class SeatReservation extends JFrame implements ActionListener {
 
     private JTextField flightNumberField, departureDateField, numberOfSeatsField;
     private JButton saveButton, submitButton;
@@ -20,8 +19,8 @@ public class SeatReservationForm extends JFrame implements ActionListener {
     private Passenger[] passengers;
     private int reservationNumber = 1;
 
-    public SeatReservationForm() {
-        super("Seat Reservation Form");
+    public SeatReservation() {
+        super("Seat Reservation");
 
         reservationMap = new HashMap<>();
 
@@ -64,7 +63,7 @@ public class SeatReservationForm extends JFrame implements ActionListener {
                 for (int i = 0; i < numSeats; i++) {
                     if (passengers[i] == null) {
                         passengers[i] = new Passenger(passengerNameField.getText());
-                        JOptionPane.showMessageDialog(SeatReservationForm.this, "Passenger added successfully");
+                        JOptionPane.showMessageDialog(SeatReservation.this, "Passenger added successfully");
                         passengerNameField.setText("");
                         break;
                     }
@@ -89,7 +88,7 @@ public class SeatReservationForm extends JFrame implements ActionListener {
 //                SeatReservation reservation = new SeatReservation(flightNumber, departureDate, numberOfPassengers, passengers, reservedSeats);
 //                reservationMap.put(reservation.getReservationNumber() + "", reservation.toString());
 
-                JOptionPane.showMessageDialog(SeatReservationForm.this, "Reservation saved successfully");
+                JOptionPane.showMessageDialog(SeatReservation.this, "Reservation saved successfully");
                 flightNumberComboBox.setSelectedIndex(0);
                 departureDateField.setText("");
                 numberOfSeatsField.setText("");
@@ -111,6 +110,6 @@ public class SeatReservationForm extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new SeatReservationForm();
+        new SeatReservation();
     }
 }

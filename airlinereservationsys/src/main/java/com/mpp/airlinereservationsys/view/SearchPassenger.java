@@ -1,21 +1,17 @@
 package com.mpp.airlinereservationsys.view;
 
-import com.mpp.airlinereservationsys.model.Flight;
 import com.mpp.airlinereservationsys.model.Passenger;
 import com.mpp.airlinereservationsys.test.MockData;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
-public class PassengerReportForm extends JFrame implements ActionListener {
+public class SearchPassenger extends JFrame implements ActionListener {
     private static JFrame jFrame;
 
     private JTable table;
@@ -24,17 +20,17 @@ public class PassengerReportForm extends JFrame implements ActionListener {
 
     private JTextField searchField;
 
-    public PassengerReportForm() throws Exception {
+    public SearchPassenger() throws Exception {
 
-        jFrame=new JFrame("Passenger List");
-        setTitle("Passenger List");
+        jFrame=new JFrame("Search Passenger");
+        setTitle("Search Passenger");
 
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
 
-        tableModel.addColumn("fullName");
-        tableModel.addColumn("address");
-        tableModel.addColumn("telephoneNumber");
+        tableModel.addColumn("FullName");
+        tableModel.addColumn("Address");
+        tableModel.addColumn("Telephone Number");
 
 
         for(Passenger data : MockData.getPassengerList())
@@ -92,7 +88,7 @@ public class PassengerReportForm extends JFrame implements ActionListener {
         }
     }
     public static void main(String[] args) throws Exception {
-        new FlightSearchForm();
+        new SearchFlight();
     }
 
 

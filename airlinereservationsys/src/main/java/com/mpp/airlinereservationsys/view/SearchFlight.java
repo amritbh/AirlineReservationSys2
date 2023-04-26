@@ -8,7 +8,7 @@ import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class FlightSearchForm extends JFrame implements ActionListener {
+public class SearchFlight extends JFrame implements ActionListener {
     private static JFrame jFrame;
 
     private JTable table;
@@ -17,7 +17,7 @@ public class FlightSearchForm extends JFrame implements ActionListener {
 
     private JTextField searchField;
 
-    public FlightSearchForm() throws Exception {
+    public SearchFlight() throws Exception {
 
         jFrame=new JFrame("Flight Search");
         setTitle("Flight Search");
@@ -84,7 +84,7 @@ public class FlightSearchForm extends JFrame implements ActionListener {
         }
     }
     public static void main(String[] args) throws Exception {
-        new FlightSearchForm();
+        new SearchFlight();
     }
 
 

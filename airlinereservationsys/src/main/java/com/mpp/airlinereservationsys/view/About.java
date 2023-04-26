@@ -3,9 +3,9 @@ package com.mpp.airlinereservationsys.view;
 import javax.swing.*;
 import java.awt.*;
 
-public class AboutForm extends JFrame {
+public class About extends JFrame {
 
-    public AboutForm() {
+    public About() {
         setTitle("About");
         setSize(400, 300);
         setLocationRelativeTo(null); // center the frame on screen
@@ -50,7 +50,7 @@ public class AboutForm extends JFrame {
     }
 
     public static void main(String[] args) {
-        AboutForm aboutPage = new AboutForm();
+        About aboutPage = new About();
         aboutPage.setVisible(true);
     }
 

@@ -115,23 +115,23 @@ public class Home {
 
     public  void flightSearch() throws Exception {
         frame.setVisible(false);
-        FlightSearchForm flightSearchForm=new FlightSearchForm();
+        SearchFlight flightSearchForm=new SearchFlight();
         flightSearchForm.show();
     }
     public  void flightReservation_() throws Exception {
         frame.setVisible(false);
-        FlightReservationForm flightReservationForm=new FlightReservationForm();
-        flightReservationForm.show();
+        FlightReservation flightReservation=new FlightReservation();
+        flightReservation.show();
     }
 
     public  void passengerSearch() throws Exception {
         frame.setVisible(false);
-        PassengerReportForm passengerReportForm=new PassengerReportForm();
+        SearchPassenger passengerReportForm=new SearchPassenger();
         passengerReportForm.show();
     }
     public  void helpSearch()  {
         frame.setVisible(false);
-         AboutForm aboutForm=new AboutForm();
+         About aboutForm=new About();
         //aboutForm.disposeWindow();
     }
     // login - closes the current frame and opens the login page

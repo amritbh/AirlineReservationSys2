@@ -32,7 +32,7 @@ public class LayoutForm extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    FlightSearchForm flightSearchForm=new FlightSearchForm();
+                    SearchFlight flightSearchForm=new SearchFlight();
                     setVisible(true);
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
@@ -65,7 +65,7 @@ public class LayoutForm extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //PassengerReportForm passengerReportForm = new PassengerReportForm();
                 try {
-                    new PassengerReportForm();
+                    new SearchPassenger();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -81,7 +81,7 @@ public class LayoutForm extends JFrame {
         JMenuItem aboutMenuItem = new JMenuItem("About");
         aboutMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AboutForm aboutPage = new AboutForm();
+                About aboutPage = new About();
                 aboutPage.disposeWindow();
                 aboutPage.setVisible(true);
             }
