@@ -118,6 +118,9 @@ public class FlightReservation extends JFrame implements ActionListener {
                 reservationMap.put("Arrival Time", arrivalTimeField.getText());
 
                 JOptionPane.showMessageDialog(this, "Reservation saved successfully");
+                disposeWindow();
+                Home home=new Home();
+                home.show();
             }
         }
         if (e.getSource() == backButton) {
